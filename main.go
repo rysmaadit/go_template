@@ -1,11 +1,13 @@
 package main
 
 import (
-	"fmt"
-
-	"example.com/m/hello"
+	"example.com/m/app"
+	"example.com/m/cmd"
+	"os"
 )
 
 func main() {
-	fmt.Println(hello.Hello())
+	c := cmd.NewCli(os.Args)
+	app.NewApp()
+	c.Run()
 }
