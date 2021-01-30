@@ -4,6 +4,7 @@ import (
 	"context"
 	"example.com/m/config"
 	"example.com/m/router"
+	"example.com/m/service"
 	"fmt"
 	"net/http"
 	"os"
@@ -31,7 +32,7 @@ func (c *Cli) Run() {
 
 	srv := &http.Server{
 		Addr:    fmt.Sprintf("%v:%v", config.GetAppHost(), config.GetAppPort()),
-		Handler: router.NewRouter(),
+		Handler: router.NewRouter(service.InstantiateDependencies()),
 	}
 
 	log.Println(fmt.Sprintf("starting application: %v on port: %v", config.GetAppName(), config.GetAppPort()))
