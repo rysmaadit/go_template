@@ -22,9 +22,9 @@ func init() {
 	log.SetOutput(os.Stdout)
 
 	appConfig = &Config{
-		AppName: getString("APP_NAME"),
-		AppHost: getString("APP_HOST"),
-		AppPort: getString("APP_PORT"),
+		AppName: GetString("APP_NAME"),
+		AppHost: GetString("APP_HOST"),
+		AppPort: GetString("APP_PORT"),
 	}
 }
 
@@ -40,6 +40,6 @@ func GetAppPort() string {
 	return appConfig.AppPort
 }
 
-func getString(key string) string {
+func GetString(key string) string {
 	return os.Getenv(key)
 }
